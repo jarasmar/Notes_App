@@ -1,14 +1,17 @@
 'use strict';
 
-function Note() {
-  this.text = 'JavaScript is my favourite language';
-}
-
 (function(exports) {
-  var note = new Note;
-  function returnText() {
-    return(note.text);
+  function Note() {
+    this.text = 'JavaScript is my favourite language';
   };
 
-  exports.returnText = returnText;
+  Note.prototype.returnText = function () {
+    return(this.text);
+  };
+  //   var note = new Note;
+  //  function returnText() {
+  //   return(note.text);
+  // };
+  exports.Note = Note;
+  // exports.returnText = returnText;
 })(this);
