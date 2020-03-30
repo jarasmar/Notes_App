@@ -1,8 +1,8 @@
 'use strict';
 
 (function(exports) {
-  function Note() {
-    this.text = 'JavaScript is my favourite language';
+  function Note(text) {
+    this.text = text;
   };
 
   Note.prototype.returnText = function () {
