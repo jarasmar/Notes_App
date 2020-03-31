@@ -2,8 +2,8 @@
 
 (function(exports) {
   function NoteListView() {
-    this.noteList = new NoteList;
-  };
+    this.noteList = new NoteList();
+  }
 
   NoteListView.prototype.generateView = function() {
     var textArray = [];
