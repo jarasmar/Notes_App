@@ -1,11 +1,18 @@
 'use strict';
 
 (function(exports) {
-
-  function changeElement() {
-    var div = document.getElementById('app');
-    div.innerHTML = 'Howdy';
+  function NoteController(noteList = new NoteList()) {
+    this.list = noteList;
+    this.list.create(new Note('Favourite drink: seltzer'));
+    this.noteListView = new NoteListView(this.list);
   }
-  changeElement();
-  exports.changeElement = changeElement;
+
+
+NoteController.prototype.getHTML = function() {
+  
+  document.getElementById('app').innerHTML = this.noteListView.generateView();
+
+}
+
+exports.NoteController = NoteController;
 })(this);
