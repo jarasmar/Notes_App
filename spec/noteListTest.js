@@ -27,6 +27,16 @@
     // }
   }
 
+  function assignNoteID() {
+    var noteList = new NoteList();
+    noteList.create(new Note('New Note'));
+    noteList.create(new Note('Second New Note'));
+
+    assert.isTrue(noteList.getID('New Note') === 0);
+    assert.isTrue(noteList.getID('Second New Note') === 1);
+  }
+
+  assignNoteID();
   returnsTheNotesInArray();
   createsANewNoteInNoteList();
 })(this);
