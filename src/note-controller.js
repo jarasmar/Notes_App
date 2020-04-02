@@ -30,6 +30,8 @@ NoteController.prototype.submitForm = function() {
     element.addEventListener('submit', function(event) {
       event.preventDefault();
       console.log('submitted!')
+      var text = document.getElementById('text').value;
+      console.log(text);
     });
 
 }
