@@ -25,9 +25,19 @@ NoteController.prototype.getNote = function() {
   })
 }
 
+NoteController.prototype.submitForm = function() {
+    var element = document.getElementById('form');
+    element.addEventListener('submit', function(event) {
+      event.preventDefault();
+      console.log('submitted!')
+    });
+
+}
+
 exports.NoteController = NoteController;
 })(this);
 
 var controller = new NoteController;
 controller.getHTML();
 controller.getNote();
+controller.submitForm();
