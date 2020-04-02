@@ -10,7 +10,9 @@
   };
 
   NoteList.prototype.create = function(text) {
-    this.notes.push(text);
+    var id = this.notes.length
+    var note = new Note(text, id);
+    this.notes.push(note);
   };
 
   NoteList.prototype.getID = function(text) {

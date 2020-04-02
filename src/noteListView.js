@@ -7,7 +7,14 @@
 
   NoteListView.prototype.generateView = function() {
 
-    return('<ul><li><div>' + this.noteList.notes.map(note => note.text.slice(0, 20)).join('</div></li><li><div>') + '</div></li></ul>');
+    var html = `<ul>`;
+
+    this.noteList.notes.forEach(note => {
+      html += `<li><div>${note.text.slice(0, 20)}</div></li>`
+    })
+
+    html += `</ul>`;
+    return html;
 
   }
 

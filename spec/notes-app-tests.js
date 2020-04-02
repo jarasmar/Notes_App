@@ -11,8 +11,8 @@
 
   function returnsTheNotesInArray() {
     var noteList = new NoteList();
-        noteList.create(new Note("new note"));
-        noteList.create(new Note("another note"));
+        noteList.create("new note");
+        noteList.create("another note");
 
     for (var i = 0; i < noteList.notes.length; i++ ) {
       assert.isTrue(noteList.returnNotes()[i] === noteList.notes[i])
@@ -23,27 +23,28 @@
   function createsANewNoteInNoteList() {
     var noteList = new NoteList();
     noteList.create("new note");
+    noteList.create("second note");
 
-    assert.isTrue(noteList.returnNotes()[noteList.notes.length - 1] === "new note");
+    assert.isTrue(noteList.notes[0].text === "new note");
 
   }
 
-  function assignNoteID() {
+  function everyNoteHasID() {
     var noteList = new NoteList();
-    noteList.create(new Note('New Note'));
-    noteList.create(new Note('Second New Note'));
+    noteList.create('New Note');
+    noteList.create('Second New Note');
 
-    assert.isTrue(noteList.getID('New Note') === 0);
-    assert.isTrue(noteList.getID('Second New Note') === 1);
+    assert.isTrue(noteList.notes[0].id === 0);
+    assert.isTrue(noteList.notes[1].id === 1);
   }
 
   function returnsHTMLString20chars() {
     var noteList = new NoteList();
-    noteList.create(new Note("Jara is super cool and eats cake everyday"));
-    noteList.create(new Note("George is cool too but didnt get cake"));
+    noteList.create("Jara is super cool and eats cake everyday");
+    noteList.create("George is cool too but didnt get cake");
     var noteListView = new NoteListView(noteList);
 
-    assert.isTrue(noteListView.generateView() === '<ul><li><div>Jara is super cool a</div></li><li><div>George is cool too b</div></li></ul>');
+    assert.isTrue(noteListView.generateView() === `<ul><li><div>Jara is super cool a</div></li><li><div>George is cool too b</div></li></ul>`);
 
   }
 
@@ -64,7 +65,7 @@
   createsANewNoteInNoteList();
   returnsTheNotesInArray();
   returnsTextOfNote();
-  assignNoteID();
+  everyNoteHasID();
   returnsHTMLString20chars();
   noteControllerTest();
   singleNoteView();
