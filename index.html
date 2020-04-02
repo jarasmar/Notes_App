@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Notes App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
-
+    <h1> NOTE APP </h1>
+    <h3> Insert a new note </h3>
     <form id='form' method='post' action='/new_note'>
       <textarea id='text' cols='30' rows='10'></textarea>
-      <button type='submit' name='submit'>Submit</button>
-
+      <p><button type='submit' name='submit'>Submit</button></p>
     </form>
 
+    <h2> My Notes: </h2>
     <div id='app'>Note List</div>
     <div id='note'></div>
 
