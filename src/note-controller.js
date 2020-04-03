@@ -31,7 +31,6 @@ NoteController.prototype.submitFormNewNote = function() {
       var text = document.getElementById('text').value;
       self.list.create(text);
       self.getHTML();
-      clearTextArea();
     });
 }
 
