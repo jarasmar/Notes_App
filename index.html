@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Notes App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <h1> NOTE APP </h1>
+    <h3> Insert a new note </h3>
+    <form id='form' method='post' action='/new_note'>
+      <textarea id='text' cols='30' rows='10'></textarea>
+      <p><button type='submit' name='submit'>Submit</button></p>
+    </form>
+
+    <h2> My Notes: </h2>
+    <div id='app'>Note List</div>
+    <div id='note'></div>
+
+
+
+    <!-- Required Files -->
+    <script src='src/noteModel.js'></script>
+    <script src='src/noteList.js'></script>
+    <script src='src/noteListView.js'></script>
+    <script src='src/note-controller.js'></script>
+    <script src='src/single-note-view.js'></script>
+    <script src='spec/assert.js'></script>
+    <script src='spec/notes-app-tests.js'></script>
+  </body>
+</html>

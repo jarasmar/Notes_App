@@ -1,17 +1,20 @@
 'use strict';
 
 (function(exports) {
-  function NoteListView() {
-    this.noteList = new NoteList;
-  };
+  function NoteListView(noteList) {
+    this.noteList = noteList;
+  }
 
   NoteListView.prototype.generateView = function() {
-    var textArray = [];
-    for (var i = 0; i < this.noteList.noteList.length; i++) {
-      textArray.push(this.noteList.noteList[i].text);
-    }
 
-    return('<ul><li><div>' + textArray.join('</div></li><li><div>') + '</div></li></ul>');
+    var html = `<ul>`;
+
+    this.noteList.notes.forEach(note => {
+      html += `<li><div><a href='#notes/${note.id}'>${note.text.slice(0, 20)}</a></div></li>`
+    })
+
+    html += `</ul>`;
+    return html;
 
   }
 
