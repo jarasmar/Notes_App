@@ -3,10 +3,7 @@
 (function(exports) {
   function NoteController(noteList = new NoteList()) {
     this.list = noteList;
-    this.list.create('Favourite drink: seltzer');
-    this.list.create('Favourite animals: Pandas!');
     this.noteListView = new NoteListView(this.list);
-    // this.noteId = 0;
   }
 
 
@@ -25,15 +22,17 @@ NoteController.prototype.getNote = function() {
   })
 }
 
-NoteController.prototype.submitForm = function() {
-    var element = document.getElementById('form');
-    element.addEventListener('submit', function(event) {
-      event.preventDefault();
-      console.log('submitted!')
-      var text = document.getElementById('text').value;
-      console.log(text);
-    });
 
+NoteController.prototype.submitFormNewNote = function() {
+    var form = document.getElementById('form');
+    var self = this;
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      var text = document.getElementById('text').value;
+      self.list.create(text);
+      self.getHTML();
+      clearTextArea();
+    });
 }
 
 exports.NoteController = NoteController;
@@ -42,4 +41,4 @@ exports.NoteController = NoteController;
 var controller = new NoteController;
 controller.getHTML();
 controller.getNote();
-controller.submitForm();
+controller.submitFormNewNote();
