@@ -27,7 +27,7 @@ _(NB: notes do not need to be permanently stored. If the user refreshes their we
 ![Domain Model](images/NotesAppDiagram-Friday.png)
 
 ## How it looks like
-![Front End](noteAppView.png)
+![Front End](images/noteAppView.png)
 
 ## How it works
 - Main page has a form to submit a new Note.
